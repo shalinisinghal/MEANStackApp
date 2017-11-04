@@ -1,0 +1,156 @@
+<!-- <input type='file' (change)="readUrl($event)">
+<img [src]="url"> -->
+
+<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel-group" id="accordion">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-file">
+								</span>Add New Post</a>
+							</h4>
+						</div>
+						<div id="collapseOne" class="panel-collapse collapse in">
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Title" required />
+										</div>
+										<div class="form-group">
+											<textarea class="form-control" placeholder="Content" rows="2" required></textarea>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-10">
+											<div class="input-group image">
+												<input type="text" class="form-control image-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+												<span class="input-group-btn">
+													<!-- image-input -->
+													<div class="btn btn-default image-input">
+														<span class="glyphicon glyphicon-folder-open"></span>
+														<span class="image-input-title">Browse</span>
+														<input type="file" accept="image/png, image/jpeg, image/gif" name="inputfile"/> <!-- rename it -->
+													</div>
+												</span>
+											</div><!-- /input-group image-preview [TO HERE]--> 
+									</div>
+									<div class="col-md-2">
+										<form class="form form-inline " role="form">
+											<div class="form-group">
+												<button type="submit" class="btn btn-success btn-sm">
+													<span class="glyphicon glyphicon-floppy-disk"></span> Add Post</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	<div class="row">
+		<div class="col-md-7">
+			<div *ngFor="let blog of blogPosts">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<section class="post-heading">
+							<div class="row">
+								<div class="col-md-11">
+									<div class="media">
+										<div class="media-left">
+											<a href="#">
+												<img class="media-object photo-profile" src="http://0.gravatar.com/avatar/38d618563e55e6082adf4c8f8c13f3e4?s=40&d=mm&r=g" width="40" height="40" alt="...">
+											</a>
+										</div>
+										<div class="media-body">
+											<a href="#" class="anchor-username"><h4 class="media-heading">{{blog.createdBy}} added a post : {{blog.title}}</h4></a> 
+											<small class="anchor-time">{{blog.createdAt | date:'MMM dd,yyyy HH:mm:ss'}}</small>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-1">
+									
+									<div class="dropdown">
+										<a href="" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="glyphicon glyphicon-chevron-down"></i></a>
+										<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+											<li><a href="#">Edit</a></li>
+											<li><a href="#">Delete</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>   	          
+						</section>
+	
+						<section class="post-body">
+							<p><a href="#" class="thumbnail"><img alt="Image" src="http://i.imgur.com/tAHVmXi.jpg"></a>{{blog.body}}</p>
+						</section>
+	
+						<section class="post-footer">
+							<hr>
+							<div class="post-footer-option container">
+								<ul class="list-unstyled">
+									<li><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i> Like {{blog.likes}}</a></li>
+									<li><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i> Dislike {{blog.dislikes}}</a></li>
+									<li><a href="#"><i class="glyphicon glyphicon-comment"></i> Comment</a></li>
+									<li><a href="#"><i class="glyphicon glyphicon-share-alt"></i> Share</a></li>
+								</ul>
+							</div>
+							<div class="post-footer-comment-wrapper">
+								<div class="comment-form">
+								</div>
+								<div class="comment">
+									<div class="media">
+										<div class="media-left">
+											<a href="#">
+												<img class="media-object photo-profile" src="http://0.gravatar.com/avatar/38d618563e55e6082adf4c8f8c13f3e4?s=40&d=mm&r=g" width="32" height="32" alt="...">
+											</a>
+										</div>
+										<div class="media-body">
+											<a href="#" class="anchor-username"><h4 class="media-heading">Media heading</h4></a> 
+											<a href="#" class="anchor-time">51 mins</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div> 
+		</div>  
+    
+		<div class="col-sm-4 col-sm-offset-1 blog-sidebar">
+			<div class="sidebar-module">
+				<h4>Archives</h4>
+				<ol class="list-unstyled">
+				<li><a href="#">March 2014</a></li>
+				<li><a href="#">February 2014</a></li>
+				<li><a href="#">January 2014</a></li>
+				<li><a href="#">December 2013</a></li>
+				<li><a href="#">November 2013</a></li>
+				<li><a href="#">October 2013</a></li>
+				<li><a href="#">September 2013</a></li>
+				<li><a href="#">August 2013</a></li>
+				<li><a href="#">July 2013</a></li>
+				<li><a href="#">June 2013</a></li>
+				<li><a href="#">May 2013</a></li>
+				<li><a href="#">April 2013</a></li>
+				</ol>
+			</div>
+			<div class="sidebar-module">
+				<h4>Elsewhere</h4>
+				<ol class="list-unstyled">
+				<li><a href="#">GitHub</a></li>
+				<li><a href="#">Twitter</a></li>
+				<li><a href="#">Facebook</a></li>
+				</ol>
+			</div>
+		</div><!-- /.blog-sidebar -->
+	</div><!--row -->
+</div><!--container-->
+
