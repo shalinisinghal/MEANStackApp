@@ -2,11 +2,10 @@
 <form (submit)="onRegisterSubmit()" [formGroup]="form">
   <div class="form-group">
     <label>Name </label>
-    <div [ngClass]="{'has-error':(form.controls.name.errors && form.controls.name.dirty),
-                      'has-success':!form.controls.name.errors}">
+    <div [ngClass]="{'has-error':(form.controls.name.errors && form.controls.name.dirty), 'has-success':!form.controls.name.errors}">
       <input type="text" name="name" class="form-control" formControlName="name">
       <ul class="help-block">
-        <li *ngIf="form.controls.name.errors?.required && form.controls.name.dirty">This Field is required</li>
+        <li *ngIf="form.controls.name.errors?.required && form.controls.name.dirty" >This Field is required</li>
       </ul>
     </div>
   </div>

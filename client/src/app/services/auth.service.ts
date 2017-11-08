@@ -67,6 +67,15 @@ export class AuthService {
     localStorage.clear();
   }
 
+
+  // Function to get public profile data
+  getPublicProfile(username) {
+    var headers =new Headers();
+    this.loadToken();
+    headers.append('Authorization',this.authToken);
+    headers.append('Content-Type','application/json');
+    return this.http.get('http://localhost:3000/authentication/publicProfile/' + username, {headers:headers}).map(res => res.json());
+  }
 }
 
 
